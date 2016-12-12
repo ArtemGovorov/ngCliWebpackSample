@@ -19,4 +19,8 @@ describe('AppComponent', () => {
     expect(app).to.be.defined;
   }));
 
+  it('testing async await', async function () {
+    await Promise.resolve(1)
+  });
+
 });
