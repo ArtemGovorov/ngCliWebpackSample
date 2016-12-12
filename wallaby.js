@@ -26,6 +26,7 @@ module.exports = function (wallaby) {
 
   return {
     files: [
+      {pattern: 'node_modules/chai/chai.js', instrument: false},
       {pattern: 'src/**/*.ts', load: false},
       {pattern: 'src/**/*.d.ts', ignore: true},
       {pattern: 'src/**/*.css', load: false},
@@ -46,6 +47,7 @@ module.exports = function (wallaby) {
     postprocessor: webpackPostprocessor,
 
     setup: function () {
+      window.expect = chai.expect;
       window.__moduleBundler.loadTests();
     },
 
