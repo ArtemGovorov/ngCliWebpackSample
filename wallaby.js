@@ -18,6 +18,7 @@ module.exports = function (wallaby) {
         {test: /\.css$/, loader: 'raw-loader'},
         {test: /\.html$/, loader: 'raw-loader'},
         {test: /\.js$/, loader: 'angular2-template-loader', exclude: /node_modules/},
+        {test: /markdown-to-html.component\.js$/, loader: 'angular2-template-loader'},
         {test: /\.json$/, loader: 'json-loader'},
         {test: /\.styl$/, loaders: ['raw-loader', 'stylus-loader']},
         {test: /\.less$/, loaders: ['raw-loader', 'less-loader']},
@@ -29,13 +30,15 @@ module.exports = function (wallaby) {
     resolve: {
       modules: [
         path.join(wallaby.projectCacheDir, 'src/app'),
-        path.join(wallaby.projectCacheDir, 'src')
+        path.join(wallaby.projectCacheDir, 'src'),
+        path.join(wallaby.projectCacheDir, 'node_modules')
       ]
     }
   });
 
   return {
     files: [
+      {pattern: 'node_modules/ng2-markdown-to-html/**/*.*', load: false},
       {pattern: 'src/**/*.ts', load: false},
       {pattern: 'src/**/*.d.ts', ignore: true},
       {pattern: 'src/**/*.css', load: false},
