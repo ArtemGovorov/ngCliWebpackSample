@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -8,7 +9,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MarkdownToHtmlModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
