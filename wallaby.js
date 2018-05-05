@@ -35,10 +35,9 @@ module.exports = function (wallaby) {
         path.join(wallaby.projectCacheDir, 'src/app'),
         path.join(wallaby.projectCacheDir, 'src'),
         'node_modules',
-        path.join(__dirname, './typings')
       ],
       alias: {
-        "@gtypes/*": path.join(__dirname, 'typings')
+        "@gtypes": path.join(wallaby.projectCacheDir, 'typings')
       }
     },
     node: {
@@ -53,7 +52,8 @@ module.exports = function (wallaby) {
     files: [
       {pattern: 'src/**/*.+(ts|css|less|scss|sass|styl|html|json|svg)', load: false},
       {pattern: 'src/**/*.d.ts', ignore: true},
-      {pattern: 'src/**/*spec.ts', ignore: true}
+      {pattern: 'src/**/*spec.ts', ignore: true},
+      {pattern: 'typings/**/*', load: false}
     ],
 
     tests: [
