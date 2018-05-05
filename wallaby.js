@@ -34,8 +34,12 @@ module.exports = function (wallaby) {
       modules: [
         path.join(wallaby.projectCacheDir, 'src/app'),
         path.join(wallaby.projectCacheDir, 'src'),
-        'node_modules'
-      ]
+        'node_modules',
+        path.join(__dirname, './typings')
+      ],
+      alias: {
+        "@gtypes/*": path.join(__dirname, 'typings')
+      }
     },
     node: {
       fs: 'empty',
